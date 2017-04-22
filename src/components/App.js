@@ -1,21 +1,13 @@
 import React from 'react';
-import MapViewContainer from '../containers/MapViewContainer';
-import FabContainer from '../containers/FabContainer';
 
+import Router from '../containers/Router';
 import './app.css';
 
 class AppComponent extends React.Component {
 
   render() {
     return (
-      <div className="wrapper">
-        <MapViewContainer
-          onMapLoad={() => {}}
-          onMapClick={() => {}}
-          options={{ disableDefaultUI: true }}
-        />
-      <FabContainer />
-      </div>
+      <Router />
     );
   }
 }

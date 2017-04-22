@@ -5,7 +5,7 @@ class Fab extends React.Component {
 
   render() {
     return (
-      <button type="button" className="cta"></button>
+      <button type="button" className="cta" onClick={this.props.action} ></button>
     );
   }
 }

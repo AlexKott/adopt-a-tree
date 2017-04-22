@@ -26,7 +26,7 @@ class MapViewContainer extends Component {
         center={this.props.position}
         zoom={this.props.zoom}
       />
-  )
+    );
   }
 }
 

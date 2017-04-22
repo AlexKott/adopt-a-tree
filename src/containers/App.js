@@ -10,7 +10,13 @@ import React, {
 } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { setGeolocation } from '../actions/';
+import {
+  setGeolocation,
+  addTree,
+  defineVideoSize,
+  takePicture,
+  setMediaStream
+} from '../actions/';
 import Main from '../components/App';
 /* Populated by react-webpack-redux:reducer */
 class App extends Component {
@@ -25,7 +31,13 @@ class App extends Component {
  *       adjust it here.
  */
 App.propTypes = {
-  actions: PropTypes.shape({ setGeolocation: PropTypes.func.isRequired }),
+  actions: PropTypes.shape({
+    setGeolocation: PropTypes.func.isRequired,
+    addTree: PropTypes.func.isRequired,
+    defineVideoSize: PropTypes.func.isRequired,
+    takePicture: PropTypes.func.isRequired,
+    setMediaStream: PropTypes.func.isRequired
+  }),
   mapView: PropTypes.shape({})
 };
 function mapStateToProps(state) {
@@ -36,7 +48,13 @@ function mapStateToProps(state) {
 }
 function mapDispatchToProps(dispatch) {
   /* Populated by react-webpack-redux:action */
-  const actions = { setGeolocation };
+  const actions = {
+    setGeolocation,
+    addTree,
+    defineVideoSize,
+    takePicture,
+    setMediaStream
+  };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;
 }
