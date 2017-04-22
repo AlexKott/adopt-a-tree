@@ -9,6 +9,7 @@ import CameraContainer from './CameraContainer';
 import MapViewContainer from './MapViewContainer';
 import CreateTreeContainer from './CreateTreeContainer';
 import Fab from '../components/Fab';
+import IssueAlert from '../components/IssueAlert.js';
 
 class Router extends Component {
 
@@ -49,11 +50,20 @@ class Router extends Component {
       )
     } else if (this.props.isWarning) {
       return (
-        <div></div>
+        <IssueAlert
+          title="Oh no! You detected a potential threat?"
+          text="Let others know what's wrong with this tree:"
+          color="yellow"
+        />
       )
     } else if (this.props.isAlert) {
       return (
-        <div></div>
+        <IssueAlert
+          title="Oh no! You're having a tree-emergency?"
+          text="Let others know what’s happening to this tree right now:"
+          color="red"
+          isAlert
+        />
       )
     } else {
       return (
