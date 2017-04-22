@@ -38,3 +38,9 @@ body {
   color: white;
   background-color: lightgreen
 }
+
+.icon {
+  fill: #F5EFDE;
+  align-self: center;
+  margin-top: 8px;
+}

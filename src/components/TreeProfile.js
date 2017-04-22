@@ -1,6 +1,8 @@
 import React from 'react';
 import './treeprofile.less';
 
+import IconAlert from '../images/IconAlert.js';
+
 class TreeProfile extends React.Component {
 
   render() {
@@ -34,8 +36,8 @@ class TreeProfile extends React.Component {
         </article>
         <nav className="bottom-bar">
           <button className="bottom-bar__button bottom-bar__button--yellow">!</button>
-          <button className="bottom-bar__button bottom-bar__button--red">!!!</button>
-          <button className="bottom-bar__button">Map</button>
+          <button className="bottom-bar__button bottom-bar__button--red"><IconAlert /></button>
+          <button className="bottom-bar__button">X</button>
         </nav>
       </main>
     );
