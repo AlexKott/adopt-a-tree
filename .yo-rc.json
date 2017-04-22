@@ -1,0 +1,9 @@
+{
+  "generator-react-webpack": {
+    "appName": "adopt-atree",
+    "style": "less",
+    "cssmodules": false,
+    "postcss": false,
+    "generatedWithVersion": 4
+  }
+}
