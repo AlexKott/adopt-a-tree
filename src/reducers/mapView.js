@@ -14,7 +14,28 @@ const initialState = {
   },
   mediaStream: null,
   picture: null,
-  treeName: ''
+  treeName: '',
+  activeProfile: null,
+  trees: [
+    {
+      id: 1,
+      name: 'Hans',
+      position: {
+        lat: 41.709219,
+        lng: 44.80313
+      },
+      picture: ''
+    },
+    {
+      id: 2,
+      name: 'Peter',
+      position: {
+        lat: 41.809219,
+        lng: 44.80313
+      },
+      picture: ''
+    }
+  ]
 };
 
 function reducer(state = initialState, action) {
@@ -32,8 +53,8 @@ function reducer(state = initialState, action) {
     case  CHANGE_TREE_NAME:
       return Object.assign({}, state, { treeName: action.name });
     case REGISTER_TREE:
-      console.log(state.position, state.picture, state.treeName);
-      return state;
+
+      return Object.assign({}, state, { isAddingTree: false, activeProfile: action.tree.id });
     default: {
       return state;
     }

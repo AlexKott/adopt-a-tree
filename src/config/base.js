@@ -7,5 +7,7 @@ export default {
   defaultZoom: 13,
   mapOptions: {
     disableDefaultUI: true
-  }
+  },
+  userId: '58fb8db0d91899006e038302',
+  apiUrl: 'https://adopt-the-tree.herokuapp.com/tree'
 };

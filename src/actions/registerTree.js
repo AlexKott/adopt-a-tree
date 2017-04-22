@@ -1,5 +1,7 @@
 import { REGISTER_TREE } from './const';
 
+import config from 'config';
+
 import request from 'superagent';
 
 function action() {
@@ -7,15 +9,16 @@ function action() {
     const state = getState().mapView;
     const tree = {
       name: state.treeName,
-      position: state.position,
+      longitude: state.position.lng,
+      latitude: state.position.lat,
+      user_d: config.userId,
       picture: state.picture
     }
     request
-      .post('API')
+      .post(config.apiUrl)
       .send(tree)
       .end((d) => {
-        console.log(d)
-        dispatch({ type: REGISTER_TREE });
+        dispatch({ type: REGISTER_TREE, tree });
       });
   }
 }
