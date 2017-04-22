@@ -6,6 +6,9 @@ Allows to import actions like so:
 import {action1, action2} from '../actions/'
 */
 /* Populated by react-webpack-redux:action */
+import saveMarkers from '../actions/saveMarkers.js';
+import showMap from '../actions/showMap.js';
+import openTree from '../actions/openTree.js';
 import registerTree from '../actions/registerTree.js';
 import changeTreeName from '../actions/changeTreeName.js';
 import setMediaStream from '../actions/setMediaStream.js';
@@ -20,6 +23,9 @@ const actions = {
   takePicture,
   setMediaStream,
   changeTreeName,
-  registerTree
+  registerTree,
+  openTree,
+  showMap,
+  saveMarkers
 };
 module.exports = actions;

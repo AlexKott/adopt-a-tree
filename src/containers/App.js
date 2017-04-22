@@ -17,7 +17,10 @@ import {
   takePicture,
   setMediaStream,
   changeTreeName,
-  registerTree
+  registerTree,
+  openTree,
+  showMap,
+  saveMarkers
 } from '../actions/';
 import Main from '../components/App';
 /* Populated by react-webpack-redux:reducer */
@@ -40,7 +43,10 @@ App.propTypes = {
     takePicture: PropTypes.func.isRequired,
     setMediaStream: PropTypes.func.isRequired,
     changeTreeName: PropTypes.func.isRequired,
-    registerTree: PropTypes.func.isRequired
+    registerTree: PropTypes.func.isRequired,
+    openTree: PropTypes.func.isRequired,
+    showMap: PropTypes.func.isRequired,
+    saveMarkers: PropTypes.func.isRequired
   }),
   mapView: PropTypes.shape({})
 };
@@ -59,7 +65,10 @@ function mapDispatchToProps(dispatch) {
     takePicture,
     setMediaStream,
     changeTreeName,
-    registerTree
+    registerTree,
+    openTree,
+    showMap,
+    saveMarkers
   };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;

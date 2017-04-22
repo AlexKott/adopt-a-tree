@@ -9,8 +9,8 @@ class TreeProfile extends React.Component {
     return (
       <main className="profile">
         <article className="profile__box profile__box--row">
-          <img className="profile__image" src="https://phsonline.org/uploads/blog/tree11.jpg"/>
-          <h2 className="profile__title">This is XXX.</h2>
+          <div className="profile__image" style={{ backgroundImage: `url(${this.props.picture})` }} />
+          <h2 className="profile__title">This is {this.props.name}.</h2>
         </article>
         <article className="profile__box">
           <h3 className="profile__section-title">Safety level: XXX</h3>
@@ -37,7 +37,7 @@ class TreeProfile extends React.Component {
         <nav className="bottom-bar">
           <button className="bottom-bar__button bottom-bar__button--yellow">!</button>
           <button className="bottom-bar__button bottom-bar__button--red"><IconAlert /></button>
-          <button className="bottom-bar__button">X</button>
+          <button className="bottom-bar__button" onClick={() => this.props.showMap()}>X</button>
         </nav>
       </main>
     );

@@ -16,7 +16,7 @@ class CreateTree extends React.Component {
         </article>
         <article className="profile__box">
           <h3>It's located at
-            <span> {this.props.location.lng.toFixed(3)} / {this.props.location.lat.toFixed(3)}</span>
+            <span> {this.props.location.lng} / {this.props.location.lat}</span>
           </h3>
         </article>
       </main>

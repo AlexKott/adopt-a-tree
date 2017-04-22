@@ -1,7 +1,7 @@
 import config from 'config';
 import { SET_GEOLOCATION,
   ADD_TREE, DEFINE_VIDEO_SIZE, TAKE_PICTURE, SET_MEDIA_STREAM,
-CHANGE_TREE_NAME, REGISTER_TREE } from '../actions/const';
+CHANGE_TREE_NAME, REGISTER_TREE, OPEN_TREE, SHOW_MAP, SAVE_MARKERS } from '../actions/const';
 
 const initialState = {
   position: config.defaultPosition,
@@ -15,33 +15,15 @@ const initialState = {
   mediaStream: null,
   picture: null,
   treeName: '',
-  activeProfile: null,
-  trees: [
-    {
-      id: 1,
-      name: 'Hans',
-      position: {
-        lat: 41.709219,
-        lng: 44.80313
-      },
-      picture: ''
-    },
-    {
-      id: 2,
-      name: 'Peter',
-      position: {
-        lat: 41.809219,
-        lng: 44.80313
-      },
-      picture: ''
-    }
-  ]
+  activeTree: null,
+  trees: [],
+  markers: []
 };
 
 function reducer(state = initialState, action) {
   switch (action.type) {
     case SET_GEOLOCATION:
-      return Object.assign({}, state, { position: action.position });
+      return Object.assign({}, state, { position: action.position, trees: action.trees });
     case ADD_TREE:
       return Object.assign({}, state, { isTakingPicture: true });
     case DEFINE_VIDEO_SIZE:
@@ -53,8 +35,13 @@ function reducer(state = initialState, action) {
     case  CHANGE_TREE_NAME:
       return Object.assign({}, state, { treeName: action.name });
     case REGISTER_TREE:
-
-      return Object.assign({}, state, { isAddingTree: false, activeProfile: action.tree.id });
+      return Object.assign({}, state, { isAddingTree: false, isViewingTree: true, activeTree: action.tree });
+    case OPEN_TREE:
+      return Object.assign({}, state, { isViewingTree: true, activeTree: action.tree });
+    case SHOW_MAP:
+      return Object.assign({}, state, { isViewingTree: false, isAddingTree: false, isTakingPicture: false });
+    case SAVE_MARKERS:
+      return Object.assign({}, state, { markers: action.markers });
     default: {
       return state;
     }

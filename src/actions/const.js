@@ -7,3 +7,6 @@ export const TAKE_PICTURE = 'TAKE_PICTURE';
 export const SET_MEDIA_STREAM = 'SET_MEDIA_STREAM';
 export const CHANGE_TREE_NAME = 'CHANGE_TREE_NAME';
 export const REGISTER_TREE = 'REGISTER_TREE';
+export const OPEN_TREE = 'OPEN_TREE';
+export const SHOW_MAP = 'SHOW_MAP';
+export const SAVE_MARKERS = 'SAVE_MARKERS';

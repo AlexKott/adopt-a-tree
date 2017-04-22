@@ -8,6 +8,7 @@ import { defineVideoSize, addTree, takePicture, registerTree } from '../actions/
 import CameraContainer from './CameraContainer';
 import MapViewContainer from './MapViewContainer';
 import CreateTreeContainer from './CreateTreeContainer';
+import TreeProfileContainer from './TreeProfileContainer';
 import Fab from '../components/Fab';
 import IssueAlert from '../components/IssueAlert.js';
 
@@ -41,12 +42,16 @@ class Router extends Component {
           <Fab action={() => this.takePicture()} />
         </div>
       )
-    } else if (this.props.picture) {
+    } else if (this.props.isAddingTree) {
       return (
         <div className="wrapper">
           <CreateTreeContainer picture={this.props.picture} />
           <Fab action={() => this.props.actions.registerTree()} />
         </div>
+      )
+    } else if (this.props.isViewingTree) {
+      return (
+        <TreeProfileContainer />
       )
     } else if (this.props.isWarning) {
       return (
@@ -88,6 +93,7 @@ function mapStateToProps(state) {
   const props = {
     isAddingTree: state.mapView.isAddingTree,
     isTakingPicture: state.mapView.isTakingPicture,
+    isViewingTree: state.mapView.isViewingTree,
     videoSize: state.mapView.videoSize,
     mediaStream: state.mapView.mediaStream,
     picture: state.mapView.picture

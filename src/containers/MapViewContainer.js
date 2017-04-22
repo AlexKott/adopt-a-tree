@@ -4,7 +4,7 @@ import React, {
 } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { setGeolocation } from '../actions/';
+import { setGeolocation, openTree, saveMarkers } from '../actions/';
 import MapView from '../components/MapView';
 
 class MapViewContainer extends Component {
@@ -17,14 +17,10 @@ class MapViewContainer extends Component {
   render() {
     return (
       <MapView
-        containerElement={
-          <div style={{ height: `100%`, width: `100%` }} />
-        }
-        mapElement={
-          <div style={{ height: `100%`, width: `100%`  }} />
-        }
-        center={this.props.position}
-        zoom={this.props.zoom}
+        trees={this.props.trees}
+        markers={this.props.markers}
+        openTree={(id) => this.props.actions.openTree(id)}
+        saveMarkers={(markers) => this.props.actions.saveMarkers(markers)}
       />
     );
   }
@@ -37,14 +33,18 @@ MapViewContainer.propTypes = {
 function mapStateToProps(state) {
   const props = {
     position: state.mapView.position,
-    zoom: state.mapView.zoom
+    zoom: state.mapView.zoom,
+    trees: state.mapView.trees,
+    markers: state.mapView.markers
   };
   return props;
 }
 
 function mapDispatchToProps(dispatch) {
   const actions = {
-    setGeolocation
+    setGeolocation,
+    openTree,
+    saveMarkers
   };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;

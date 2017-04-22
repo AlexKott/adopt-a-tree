@@ -4,7 +4,7 @@ export default {
       lat: 41.709219,
       lng: 44.80313
   },
-  defaultZoom: 13,
+  defaultZoom: 15,
   mapOptions: {
     disableDefaultUI: true
   },

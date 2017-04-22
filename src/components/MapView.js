@@ -1,20 +1,50 @@
 import React from 'react';
-import { withGoogleMap, GoogleMap } from 'react-google-maps';
 
 import config from 'config';
 
 import './mapview.less';
 
-const MapView = withGoogleMap(props => (
-  <GoogleMap
-    ref={props.onMapLoad}
-    onClick={props.onMapClick}
-    options={config.mapOptions}
-    center={props.center}
-    defaultZoom={config.defaultZoom}
-  >
-  </GoogleMap>
-))
+class MapView extends React.Component {
+  componentDidMount() {
+    this.map = new google.maps.Map(document.getElementById('map'), {
+      zoom: config.defaultZoom,
+      center: config.defaultPosition,
+      disableDefaultUI: true
+    });
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const that = this;
+    if (nextProps.trees.length !== this.props.markers.length) {
+      const markers = [];
+      nextProps.trees.forEach(tree => {
+        const marker = new google.maps.Marker({
+          position: tree.position,
+          map: this.map,
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+          name: tree.name,
+          id: tree.id
+        });
+        marker.addListener('click', () => {
+          that.props.openTree(marker.id);
+        });
+        markers.push(marker);
+      });
+      this.props.saveMarkers(markers);
+    }
+  }
+
+  componentWillUnmount() {
+    this.props.saveMarkers([]);
+  }
+
+  render() {
+    return (
+      <div id="map" className="wrapper" />
+    )
+  }
+}
 
 MapView.displayName = 'MapView';
 MapView.propTypes = {};
