@@ -1,8 +1,9 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import ReduxThunk from 'redux-thunk';
 import reducers from '../reducers';
 
 function reduxStore(initialState) {
-  const store = createStore(reducers, initialState,
+  const store = createStore(reducers, initialState, applyMiddleware(ReduxThunk),
     window.devToolsExtension && window.devToolsExtension());
 
   if (module.hot) {

@@ -74,6 +74,9 @@
     "react-hot-loader": "^3.0.0-beta.6",
     "react-redux": "^5.0.4",
     "redux": "^3.6.0",
-    "webpack": "^2.1.0-beta.6"
+    "redux-thunk": "^2.2.0",
+    "superagent": "^3.5.2",
+    "webpack": "^2.1.0-beta.6",
+    "webrtc-adapter": "^3.3.3"
   }
 }

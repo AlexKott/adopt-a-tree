@@ -15,7 +15,9 @@ import {
   addTree,
   defineVideoSize,
   takePicture,
-  setMediaStream
+  setMediaStream,
+  changeTreeName,
+  registerTree
 } from '../actions/';
 import Main from '../components/App';
 /* Populated by react-webpack-redux:reducer */
@@ -36,7 +38,9 @@ App.propTypes = {
     addTree: PropTypes.func.isRequired,
     defineVideoSize: PropTypes.func.isRequired,
     takePicture: PropTypes.func.isRequired,
-    setMediaStream: PropTypes.func.isRequired
+    setMediaStream: PropTypes.func.isRequired,
+    changeTreeName: PropTypes.func.isRequired,
+    registerTree: PropTypes.func.isRequired
   }),
   mapView: PropTypes.shape({})
 };
@@ -53,7 +57,9 @@ function mapDispatchToProps(dispatch) {
     addTree,
     defineVideoSize,
     takePicture,
-    setMediaStream
+    setMediaStream,
+    changeTreeName,
+    registerTree
   };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;
