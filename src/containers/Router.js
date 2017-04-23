@@ -12,6 +12,7 @@ import TreeProfileContainer from './TreeProfileContainer';
 import Fab from '../components/Fab';
 import LoadingScreen from '../components/LoadingScreen';
 import IssueAlert from '../components/IssueAlert.js';
+import FakeAlert from '../components/FakeAlert.js';
 
 import config from 'config';
 
@@ -49,7 +50,11 @@ class Router extends Component {
   }
 
   render() {
-    if (this.props.isTakingPicture) {
+    if (this.props.isAlertStarted) {
+      return (
+        <FakeAlert />
+      )
+    } else if (this.props.isTakingPicture) {
       return (
         <CameraContainer />
       )
@@ -107,6 +112,7 @@ Router.propTypes = {
 
 function mapStateToProps(state) {
   const props = {
+    isAlertStarted: state.mapView.isAlertStarted,
     isStarted: state.mapView.isStarted,
     isLoading: state.mapView.isLoading,
     isAddingTree: state.mapView.isAddingTree,

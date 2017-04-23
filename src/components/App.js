@@ -9,7 +9,7 @@ class AppComponent extends React.Component {
 
   render() {
     return (
-      <FakeAlert />
+      <Router />
     );
   }
 }

@@ -20,6 +20,7 @@ class TreeProfileContainer extends Component {
         showMap={this.props.actions.showMap}
         showWarning={this.props.actions.showWarning}
         showAlert={this.props.actions.showAlert}
+        startAlert={this.props.actions.startAlert}
         checkIn={this.props.actions.checkIn}
         points={this.props.points}
         hasCheckedIn={this.props.hasCheckedIn}
