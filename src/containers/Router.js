@@ -4,7 +4,7 @@ import React, {
 } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { defineVideoSize, addTree, takePicture, registerTree } from '../actions/';
+import { defineVideoSize, addTree, takePicture, registerTree, sendAlert, sendWarning } from '../actions/';
 import CameraContainer from './CameraContainer';
 import MapViewContainer from './MapViewContainer';
 import CreateTreeContainer from './CreateTreeContainer';
@@ -21,16 +21,6 @@ class Router extends Component {
     };
 
     this.props.actions.defineVideoSize(videoSize);
-  }
-
-  takePicture_old() {
-    const canvas = document.querySelector('#canvas');
-    const context = canvas.getContext('2d');
-    const video = document.querySelector('#camera');
-    context.drawImage(video, 0, 0);
-    const image = canvas.toDataURL('image/jpeg');
-    this.props.mediaStream.getTracks()[0].stop();
-    this.props.actions.takePicture(image);
   }
 
   render() {
@@ -55,6 +45,7 @@ class Router extends Component {
           title="Oh no! You detected a potential threat?"
           text="Let others know what's wrong with this tree:"
           color="yellow"
+          sendAlert={(msg) => this.props.actions.sendWarning(msg)}
         />
       )
     } else if (this.props.isAlert) {
@@ -64,6 +55,7 @@ class Router extends Component {
           text="Let others know what’s happening to this tree right now:"
           color="red"
           isAlert
+          sendAlert={(msg) => this.props.actions.sendAlert(msg)}
         />
       )
     } else {
@@ -90,15 +82,17 @@ function mapStateToProps(state) {
     isAddingTree: state.mapView.isAddingTree,
     isTakingPicture: state.mapView.isTakingPicture,
     isViewingTree: state.mapView.isViewingTree,
+    isWarning: state.mapView.isWarning,
+    isAlert: state.mapView.isAlert,
     videoSize: state.mapView.videoSize,
     mediaStream: state.mapView.mediaStream,
-    picture: state.mapView.picture
+    picture: state.mapView.picture,
   };
   return props;
 }
 
 function mapDispatchToProps(dispatch) {
-  const actions = { defineVideoSize, addTree, takePicture, registerTree };
+  const actions = { defineVideoSize, addTree, takePicture, registerTree, sendAlert, sendWarning };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;
 }

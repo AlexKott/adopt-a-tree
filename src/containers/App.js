@@ -20,7 +20,11 @@ import {
   registerTree,
   openTree,
   showMap,
-  saveMarkers
+  saveMarkers,
+  showWarning,
+  showAlert,
+  sendWarning,
+  sendAlert
 } from '../actions/';
 import Main from '../components/App';
 /* Populated by react-webpack-redux:reducer */
@@ -46,7 +50,11 @@ App.propTypes = {
     registerTree: PropTypes.func.isRequired,
     openTree: PropTypes.func.isRequired,
     showMap: PropTypes.func.isRequired,
-    saveMarkers: PropTypes.func.isRequired
+    saveMarkers: PropTypes.func.isRequired,
+    showWarning: PropTypes.func.isRequired,
+    showAlert: PropTypes.func.isRequired,
+    sendWarning: PropTypes.func.isRequired,
+    sendAlert: PropTypes.func.isRequired
   }),
   mapView: PropTypes.shape({})
 };
@@ -68,7 +76,11 @@ function mapDispatchToProps(dispatch) {
     registerTree,
     openTree,
     showMap,
-    saveMarkers
+    saveMarkers,
+    showWarning,
+    showAlert,
+    sendWarning,
+    sendAlert
   };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;

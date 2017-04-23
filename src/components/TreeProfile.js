@@ -35,8 +35,8 @@ class TreeProfile extends React.Component {
           </div>
         </article>
         <nav className="bottom-bar">
-          <button className="bottom-bar__button bottom-bar__button--yellow">!</button>
-          <button className="bottom-bar__button bottom-bar__button--red"><IconAlert /></button>
+          <button className="bottom-bar__button bottom-bar__button--yellow" onClick={() => this.props.showWarning()}>!</button>
+          <button className="bottom-bar__button bottom-bar__button--red" onClick={() => this.props.showAlert()}><IconAlert /></button>
           <button className="bottom-bar__button" onClick={() => this.props.showMap()}>X</button>
         </nav>
       </main>
