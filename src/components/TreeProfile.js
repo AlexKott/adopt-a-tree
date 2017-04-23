@@ -16,7 +16,7 @@ class TreeProfile extends React.Component {
         <article className="profile__box">
           <h3 className="profile__section-title">Safety level: {this.props.status}</h3>
           <div className={safetybarClass}><div className="safetybar__progress"></div></div>
-          <p className="profile__stats">XXX foster parents – XXX points</p>
+          {this.props.message && <p className="profile__stats">{this.props.message}</p>}
           <p className="profile__stats">XXX check-ins – XXX points</p>
           <p className="profile__stats">XXX picture – XXX points</p>
         </article>

@@ -18,7 +18,8 @@ function action(id) {
           },
           picture: rTree.picture || null,
           id: rTree._id.$oid,
-          status: rTree.state || 'protected'
+          status: rTree.state || 'protected',
+          message: rTree.message || null
         }
         dispatch({ type: OPEN_TREE, tree });
       });

@@ -15,6 +15,7 @@ class TreeProfileContainer extends Component {
         name={this.props.name}
         picture={this.props.picture}
         status={this.props.status}
+        message={this.props.message}
         showMap={this.props.actions.showMap}
         showWarning={this.props.actions.showWarning}
         showAlert={this.props.actions.showAlert}
@@ -31,7 +32,8 @@ function mapStateToProps(state) {
   const props = {
     name: state.mapView.activeTree.name,
     picture: state.mapView.activeTree.picture,
-    status: state.mapView.activeTree.status
+    status: state.mapView.activeTree.status,
+    message: state.mapView.activeTree.message || null
   };
   return props;
 }

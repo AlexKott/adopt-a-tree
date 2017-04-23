@@ -8,34 +8,39 @@
   background: #85B353;
 }
 
+.loading-logo {
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 75vh;
+  width: 80vw;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 .loading-bubble {
   position: fixed;
   z-index: 101;
   background-color: white;
   border-radius: 50%;
+  bottom: 100px;
+	left: 50%;
+	margin: -20px;
   width: 40px;
   height: 40px;
-  bottom: 120px;
-  left: 50%;
-  animation-name: bubble;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
+  animation: bubble 1.5s infinite linear;
 }
 
 @keyframes bubble {
-  0% {
-    transform: translate(-400%, -150%)
-  }
-  25% {
-    transform: translate(400%, 150%);
-  }
-  50% {
-    transform: translate(0%, 0%)
-  }
-  75% {
-    transform: translate(400%, 150%);
-  }
-  100% {
-    transform: translate(-400%, -150%)
-  }
+  from {
+		transform: rotate(0deg)
+		           translate(-50px)
+		           rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg)
+		           translate(-50px)
+		           rotate(-360deg);
+	}
 }
