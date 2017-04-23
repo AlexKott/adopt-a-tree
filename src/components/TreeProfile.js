@@ -8,7 +8,6 @@ class TreeProfile extends React.Component {
   render() {
     const safetybarClass = `safetybar safetybar--${this.props.status}`;
     const safetyWidth = 60 + this.props.checkinCount * 10;
-    console.log(safetyWidth)
     return (
       <main className="profile">
         <div className="points">You have {this.props.points} points.</div>

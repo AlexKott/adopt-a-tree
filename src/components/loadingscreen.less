@@ -13,7 +13,7 @@
   top: 50px;
   left: 50%;
   transform: translateX(-50%);
-  height: 75vh;
+  height: 70vh;
   width: 80vw;
   background-size: contain;
   background-repeat: no-repeat;
@@ -24,34 +24,23 @@
   bottom: 36px;
   left: 50%;
   transform: translateX(-50%);
-  width: 80vw;
-  height: 136px;
+  width: 70vw;
+  height: 15vh;
   background-size: contain;
   background-repeat: no-repeat;
+  background-position: center;
+  animation: slidein 2s 1 ease;
 }
 
-.loading-bubble {
-  position: fixed;
-  z-index: 101;
-  background-color: white;
-  border-radius: 50%;
-  bottom: 100px;
-	left: 50%;
-	margin: -20px;
-  width: 40px;
-  height: 40px;
-  animation: bubble 1.5s infinite linear;
-}
-
-@keyframes bubble {
-  from {
-		transform: rotate(0deg)
-		           translate(-50px)
-		           rotate(0deg);
+@keyframes slidein {
+  0% {
+		transform: translateX(-500px);
 	}
-	to {
-		transform: rotate(360deg)
-		           translate(-50px)
-		           rotate(-360deg);
+  45%, 50%, 55% {
+    transform: translate(0);
+  }
+  60%,
+	100% {
+		transform: translateX(-50%);
 	}
 }
