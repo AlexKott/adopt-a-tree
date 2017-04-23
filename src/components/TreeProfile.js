@@ -6,6 +6,7 @@ import IconAlert from '../images/IconAlert.js';
 class TreeProfile extends React.Component {
 
   render() {
+    const safetybarClass = `safetybar safetybar--${this.props.status}`;
     return (
       <main className="profile">
         <article className="profile__box profile__box--row">
@@ -13,8 +14,8 @@ class TreeProfile extends React.Component {
           <h2 className="profile__title">This is {this.props.name}.</h2>
         </article>
         <article className="profile__box">
-          <h3 className="profile__section-title">Safety level: XXX</h3>
-          <div className="safetybar"><div className="safetybar__progress"></div></div>
+          <h3 className="profile__section-title">Safety level: {this.props.status}</h3>
+          <div className={safetybarClass}><div className="safetybar__progress"></div></div>
           <p className="profile__stats">XXX foster parents – XXX points</p>
           <p className="profile__stats">XXX check-ins – XXX points</p>
           <p className="profile__stats">XXX picture – XXX points</p>

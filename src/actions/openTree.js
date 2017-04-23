@@ -17,7 +17,8 @@ function action(id) {
             lat: rTree.location.coordinates[1]
           },
           picture: rTree.picture || null,
-          id: rTree._id.$oid
+          id: rTree._id.$oid,
+          status: rTree.state || 'protected'
         }
         dispatch({ type: OPEN_TREE, tree });
       });

@@ -33,7 +33,7 @@ class Router extends Component {
       return (
         <div className="wrapper">
           <CreateTreeContainer picture={this.props.picture} />
-          <Fab action={() => this.props.actions.registerTree()} />
+          <Fab action={() => this.props.actions.registerTree()} iconName={'done'} />
         </div>
       )
     } else if (this.props.isViewingTree) {
@@ -63,12 +63,13 @@ class Router extends Component {
       return (
         <div className="wrapper">
           {this.props.isLoading && <LoadingScreen />}
+          <div className="points">You have {this.props.points} points.</div>
           <MapViewContainer
             onMapLoad={() => {}}
             onMapClick={() => {}}
             options={{ disableDefaultUI: true }}
           />
-        <Fab action={this.props.actions.addTree} />
+          <Fab action={this.props.actions.addTree} iconName={'tree'} />
         </div>
       )
     }
@@ -90,6 +91,7 @@ function mapStateToProps(state) {
     videoSize: state.mapView.videoSize,
     mediaStream: state.mapView.mediaStream,
     picture: state.mapView.picture,
+    points: state.mapView.points
   };
   return props;
 }

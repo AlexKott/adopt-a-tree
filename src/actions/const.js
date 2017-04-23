@@ -14,3 +14,4 @@ export const SHOW_WARNING = 'SHOW_WARNING';
 export const SHOW_ALERT = 'SHOW_ALERT';
 export const SEND_WARNING = 'SEND_WARNING';
 export const SEND_ALERT = 'SEND_ALERT';
+export const ADD_POINTS = 'ADD_POINTS';

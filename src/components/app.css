@@ -46,3 +46,14 @@ body {
   align-self: center;
   margin-top: 8px;
 }
+
+.points {
+  position: fixed;
+  z-index: 95;
+  top: 0;
+  left: 50%;
+  padding: 8px;
+  transform: translateX(-50%);
+  background-color: black;
+  color: white;
+}

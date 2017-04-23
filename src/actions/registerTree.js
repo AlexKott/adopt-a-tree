@@ -1,4 +1,4 @@
-import { REGISTER_TREE } from './const';
+import { REGISTER_TREE, ADD_POINTS } from './const';
 
 import config from 'config';
 
@@ -26,6 +26,7 @@ function action() {
       .post(config.apiUrl)
       .send(rTree)
       .end((d) => {
+        dispatch({ type: ADD_POINTS, points: 50 });
         dispatch({ type: REGISTER_TREE, tree });
       });
   }

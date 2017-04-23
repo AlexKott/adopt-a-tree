@@ -19,7 +19,7 @@ class CameraContainer extends Component {
     return (
       <div className="wrapper">
         <Webcam ref="camera" width={this.props.width} height={this.props.height} audio={false} />
-        <Fab action={() => this.takePicture()} />
+        <Fab action={() => this.takePicture()} iconName={'done'} />
       </div>
     );
   }

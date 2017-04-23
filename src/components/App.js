@@ -1,12 +1,15 @@
 import React from 'react';
 
 import Router from '../containers/Router';
+import config from 'config';
 import './app.css';
 
 class AppComponent extends React.Component {
 
   componentDidMount() {
-    window.addEventListener('click', goFullScreen);
+    if (config.appEnv === 'dist') {
+      window.addEventListener('click', goFullScreen);
+    }
 
     function goFullScreen() {
       const doc = window.document;
