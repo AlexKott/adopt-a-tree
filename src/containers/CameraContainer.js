@@ -4,12 +4,24 @@ import React, {
 } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { setMediaStream } from '../actions/';
-import Camera from '../components/Camera';
+import { takePicture } from '../actions/';
+import Webcam from 'react-user-media';
+import Fab from '../components/Fab';
 
 class CameraContainer extends Component {
+
+  takePicture() {
+    const image = this.refs.camera.captureScreenshot();
+    this.props.actions.takePicture(image);
+  }
+
   render() {
-    return <Camera width={this.props.width} height={this.props.height} setMediaStream={this.props.actions.setMediaStream} />;
+    return (
+      <div className="wrapper">
+        <Webcam ref="camera" width={this.props.width} height={this.props.height} audio={false} />
+        <Fab action={() => this.takePicture()} />
+      </div>
+    );
   }
 }
 
@@ -26,7 +38,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  const actions = { setMediaStream };
+  const actions = { takePicture };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;
 }

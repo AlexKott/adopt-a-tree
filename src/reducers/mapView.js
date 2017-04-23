@@ -1,6 +1,6 @@
 import config from 'config';
 import { SET_GEOLOCATION,
-  ADD_TREE, DEFINE_VIDEO_SIZE, TAKE_PICTURE, SET_MEDIA_STREAM,
+  ADD_TREE, DEFINE_VIDEO_SIZE, TAKE_PICTURE,
 CHANGE_TREE_NAME, REGISTER_TREE, OPEN_TREE, SHOW_MAP, SAVE_MARKERS } from '../actions/const';
 
 const initialState = {
@@ -12,7 +12,6 @@ const initialState = {
     width: 320,
     height: 640
   },
-  mediaStream: null,
   picture: null,
   treeName: '',
   activeTree: null,
@@ -28,8 +27,6 @@ function reducer(state = initialState, action) {
       return Object.assign({}, state, { isTakingPicture: true });
     case DEFINE_VIDEO_SIZE:
       return Object.assign({}, state, { videoSize: action.videoSize });
-    case SET_MEDIA_STREAM:
-      return Object.assign({}, state, { mediaStream: action.mediaStream });
     case TAKE_PICTURE:
       return Object.assign({}, state, { isTakingPicture: false, isAddingTree: true, picture: action.picture });
     case  CHANGE_TREE_NAME:

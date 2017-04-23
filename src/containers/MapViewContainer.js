@@ -19,6 +19,7 @@ class MapViewContainer extends Component {
       <MapView
         trees={this.props.trees}
         markers={this.props.markers}
+        position={this.props.position}
         openTree={(id) => this.props.actions.openTree(id)}
         saveMarkers={(markers) => this.props.actions.saveMarkers(markers)}
       />

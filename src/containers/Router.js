@@ -23,7 +23,7 @@ class Router extends Component {
     this.props.actions.defineVideoSize(videoSize);
   }
 
-  takePicture() {
+  takePicture_old() {
     const canvas = document.querySelector('#canvas');
     const context = canvas.getContext('2d');
     const video = document.querySelector('#camera');
@@ -36,11 +36,7 @@ class Router extends Component {
   render() {
     if (this.props.isTakingPicture) {
       return (
-        <div className="wrapper">
-          <CameraContainer />
-          <canvas id="canvas" width={this.props.videoSize.width} height={this.props.videoSize.height} />
-          <Fab action={() => this.takePicture()} />
-        </div>
+        <CameraContainer />
       )
     } else if (this.props.isAddingTree) {
       return (

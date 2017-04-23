@@ -4,7 +4,7 @@ import './camera.less';
 class Camera extends React.Component {
 
   componentDidMount() {
-    navigator.mediaDevices.getUserMedia({video: { width: this.props.width, height: this.props.height, facingMode: {exact: 'environment' }}})
+    navigator.mediaDevices.getUserMedia({video: { width: this.props.width, height: this.props.height }})
       .then((mediaStream) => {
         this.props.setMediaStream(mediaStream);
         const video = document.querySelector('#camera');

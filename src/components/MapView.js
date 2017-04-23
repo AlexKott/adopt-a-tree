@@ -8,7 +8,7 @@ class MapView extends React.Component {
   componentDidMount() {
     this.map = new google.maps.Map(document.getElementById('map'), {
       zoom: config.defaultZoom,
-      center: config.defaultPosition,
+      center: this.props.position || config.defaultPosition,
       disableDefaultUI: true
     });
   }
@@ -32,6 +32,9 @@ class MapView extends React.Component {
         markers.push(marker);
       });
       this.props.saveMarkers(markers);
+    }
+    if (nextProps.position.lng !== this.props.position.lng || nextProps.position.lat !== this.props.position.lat) {
+      this.map.setCenter(nextProps.position);
     }
   }
 
