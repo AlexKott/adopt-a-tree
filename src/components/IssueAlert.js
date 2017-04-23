@@ -15,7 +15,7 @@ class IssueAlert extends React.Component {
           <h3 className="profile__section-title">{this.props.text}</h3>
           <textarea className="alert__textbox" ref="alertVal"></textarea>
           {this.props.isAlert && <p className="profile__stats">This will send an alert to all foster parents requesting immediate help!</p>}
-          <button type="button" className={`cta fab--center fab--${this.props.color}`} onClick={() => this.props.sendAlert(this.refs.alertVal.innerText)} ><IconDone /></button>
+          <button type="button" className={`cta fab--center fab--${this.props.color}`} onClick={() => this.props.sendAlert(this.refs.alertVal.value)} ><IconDone /></button>
         </article>
       </main>
     );

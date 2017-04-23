@@ -6,7 +6,6 @@ import config from 'config';
 import request from 'superagent';
 
 function action(message) {
-  console.log(message);
   return (dispatch, getState) => {
     const id = getState().mapView.activeTree.id;
     request
