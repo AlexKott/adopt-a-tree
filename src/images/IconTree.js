@@ -1,6 +1,6 @@
 import React from 'react';
 
-const IconAlert = (props) => (
+const IconTree = (props) => (
     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" className="icon"
     	 width="40px" height="40px" viewBox="0 0 463 463">
        <g>
@@ -19,4 +19,4 @@ const IconAlert = (props) => (
     </svg>
 );
 
-export default IconAlert;
+export default IconTree;
