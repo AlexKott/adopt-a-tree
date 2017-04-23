@@ -4,7 +4,7 @@ import React, {
 } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { defineVideoSize, addTree, takePicture, registerTree, sendAlert, sendWarning } from '../actions/';
+import { defineVideoSize, addTree, takePicture, registerTree, sendAlert, sendWarning, startApp } from '../actions/';
 import CameraContainer from './CameraContainer';
 import MapViewContainer from './MapViewContainer';
 import CreateTreeContainer from './CreateTreeContainer';
@@ -13,9 +13,33 @@ import Fab from '../components/Fab';
 import LoadingScreen from '../components/LoadingScreen';
 import IssueAlert from '../components/IssueAlert.js';
 
+import config from 'config';
+
 class Router extends Component {
 
   componentDidMount() {
+    const that = this;
+    if (config.appEnv === 'dist') {
+      window.addEventListener('click', goFullScreen);
+    } else {
+      this.props.actions.startApp();
+    }
+
+    function goFullScreen() {
+      const doc = window.document;
+      const docEl = doc.documentElement;
+
+      const requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
+
+      requestFullScreen.call(docEl);
+      window.removeEventListener('click', goFullScreen);
+      window.addEventListener('click', startApp);
+    }
+
+    function startApp() {
+      that.props.actions.startApp();
+    }
+
     const videoSize = {
       width: window.innerWidth,
       height: window.innerHeight
@@ -60,9 +84,10 @@ class Router extends Component {
         />
       )
     } else {
+      const showLoading = !this.props.isStarted || this.props.isLoading;
       return (
         <div className="wrapper">
-          {this.props.isLoading && <LoadingScreen />}
+          {showLoading && <LoadingScreen />}
           <div className="points">You have {this.props.points} points.</div>
           <MapViewContainer
             onMapLoad={() => {}}
@@ -82,6 +107,7 @@ Router.propTypes = {
 
 function mapStateToProps(state) {
   const props = {
+    isStarted: state.mapView.isStarted,
     isLoading: state.mapView.isLoading,
     isAddingTree: state.mapView.isAddingTree,
     isTakingPicture: state.mapView.isTakingPicture,
@@ -97,7 +123,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  const actions = { defineVideoSize, addTree, takePicture, registerTree, sendAlert, sendWarning };
+  const actions = { defineVideoSize, addTree, takePicture, registerTree, sendAlert, sendWarning, startApp };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;
 }
