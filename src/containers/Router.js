@@ -38,7 +38,7 @@ class Router extends Component {
       )
     } else if (this.props.isViewingTree) {
       return (
-        <TreeProfileContainer />
+        <TreeProfileContainer points={this.props.points} />
       )
     } else if (this.props.isWarning) {
       return (

@@ -1,6 +1,6 @@
 import config from 'config';
 import { SET_GEOLOCATION,
-  ADD_TREE, DEFINE_VIDEO_SIZE, TAKE_PICTURE, SHOW_WARNING, SHOW_ALERT, ADD_POINTS,
+  ADD_TREE, DEFINE_VIDEO_SIZE, TAKE_PICTURE, SHOW_WARNING, SHOW_ALERT, ADD_POINTS, CHECK_IN,
 CHANGE_TREE_NAME, REGISTER_TREE, OPEN_TREE, SHOW_MAP, SAVE_MARKERS } from '../actions/const';
 
 const initialState = {
@@ -47,6 +47,9 @@ function reducer(state = initialState, action) {
       return Object.assign({}, state, { isViewingTree: false, isAlert: true });
     case ADD_POINTS:
       return Object.assign({}, state, { points: state.points + action.points });
+    case CHECK_IN:
+      const activeTree = Object.assign({}, state.activeTree, { checkinCount: state.activeTree.checkinCount + 1 });
+      return Object.assign({}, state, { hasCheckedIn: true, activeTree });
     default: {
       return state;
     }

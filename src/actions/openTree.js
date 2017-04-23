@@ -19,7 +19,8 @@ function action(id) {
           picture: rTree.picture || null,
           id: rTree._id.$oid,
           status: rTree.state || 'protected',
-          message: rTree.message || null
+          message: rTree.message || null,
+          checkinCount: rTree.checkin_count ? rTree.checkin_count + 1 : 1
         }
         dispatch({ type: OPEN_TREE, tree });
       });

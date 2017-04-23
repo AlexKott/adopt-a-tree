@@ -25,7 +25,8 @@ import {
   showAlert,
   sendWarning,
   sendAlert,
-  addPoints
+  addPoints,
+  checkIn
 } from '../actions/';
 import Main from '../components/App';
 /* Populated by react-webpack-redux:reducer */
@@ -56,7 +57,8 @@ App.propTypes = {
     showAlert: PropTypes.func.isRequired,
     sendWarning: PropTypes.func.isRequired,
     sendAlert: PropTypes.func.isRequired,
-    addPoints: PropTypes.func.isRequired
+    addPoints: PropTypes.func.isRequired,
+    checkIn: PropTypes.func.isRequired
   }),
   mapView: PropTypes.shape({})
 };
@@ -83,7 +85,8 @@ function mapDispatchToProps(dispatch) {
     showAlert,
     sendWarning,
     sendAlert,
-    addPoints
+    addPoints,
+    checkIn
   };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;
