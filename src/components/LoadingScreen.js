@@ -7,7 +7,7 @@ class LoadingScreen extends React.Component {
     return (
       <div className="wrapper loading-screen" id="loading">
         <div className="loading-logo" style={{ backgroundImage: 'url("images/logo-tree.png")'}} />
-        <div className="loading-bubble" />
+        <div className="loading-text" style={{ backgroundImage: 'url("images/logo-text.png")'}} />
       </div>
     );
   }
