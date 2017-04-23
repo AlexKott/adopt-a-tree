@@ -31,7 +31,7 @@ class TreeProfile extends React.Component {
             <p className="protect-button__label">Do this at least once a week to keep up the protection.</p>
           </div>
           <div className="protect-button__wrapper">
-            <button className="protect-button">Be a foster parent</button>
+            <button className="protect-button" onClick={() => this.props.startAlert()}>Be a foster parent</button>
             <p className="protect-button__label">The more people foster the tree the safer it becomes!</p>
           </div>
           <div className="protect-button__wrapper">

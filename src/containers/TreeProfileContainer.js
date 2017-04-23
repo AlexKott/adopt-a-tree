@@ -4,7 +4,7 @@ import React, {
 } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { showMap, showWarning, showAlert, checkIn } from '../actions/';
+import { showMap, showWarning, showAlert, checkIn, startAlert } from '../actions/';
 import TreeProfile from '../components/TreeProfile';
 
 class TreeProfileContainer extends Component {
@@ -45,7 +45,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  const actions = { showMap, showWarning, showAlert, checkIn };
+  const actions = { showMap, showWarning, showAlert, checkIn, startAlert };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;
 }

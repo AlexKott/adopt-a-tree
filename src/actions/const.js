@@ -17,3 +17,4 @@ export const SEND_ALERT = 'SEND_ALERT';
 export const ADD_POINTS = 'ADD_POINTS';
 export const CHECK_IN = 'CHECK_IN';
 export const START_APP = 'START_APP';
+export const START_ALERT = 'START_ALERT';
