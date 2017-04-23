@@ -54,6 +54,6 @@ body {
   left: 50%;
   padding: 8px;
   transform: translateX(-50%);
-  background-color: black;
-  color: white;
+  background-color: #85B353;
+  color: #F5EFDE;
 }

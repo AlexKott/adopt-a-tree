@@ -8,6 +8,7 @@ class TreeProfile extends React.Component {
   render() {
     const safetybarClass = `safetybar safetybar--${this.props.status}`;
     const safetyWidth = 60 + this.props.checkinCount * 10;
+    const safetyBoxClass = `profile__box profile__box--${this.props.status}`;
     return (
       <main className="profile">
         <div className="points">You have {this.props.points} points.</div>
@@ -15,7 +16,7 @@ class TreeProfile extends React.Component {
           <div className="profile__image" style={{ backgroundImage: `url(${this.props.picture})` }} />
           <h2 className="profile__title">This is {this.props.name}.</h2>
         </article>
-        <article className="profile__box">
+        <article className={safetyBoxClass}>
           <h3 className="profile__section-title">Safety level: {this.props.status}</h3>
           <div className={safetybarClass}>
             <div className="safetybar__progress" style={{ width: safetyWidth }}/>
