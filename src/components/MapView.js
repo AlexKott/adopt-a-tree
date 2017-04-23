@@ -20,7 +20,7 @@ class MapView extends React.Component {
       nextProps.trees.forEach(tree => {
         const icon = {
           url: `images/marker-${tree.status}.png`,
-          scaledSize: new google.maps.Size(10, 10)
+          scaledSize: new google.maps.Size(36, 58)
         }
         const marker = new google.maps.Marker({
           position: tree.position,
