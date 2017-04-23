@@ -14,7 +14,7 @@ class FakeAlert extends React.Component {
         <article className="profile__box profile__box--fake">
           <h2 className="profile__section-title">A tree you care about is in danger!</h2>
         </article>
-        <button type="button" className="cta fab--center fab--fake" onClick={() => this.props.sendAlert(this.refs.alertVal.value)} >Go!</button>
+        <button type="button" className="cta fab--center fab--fake" onClick={this.props.startAlert} >Go!</button>
       </main>
     );
   }

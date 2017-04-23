@@ -55,7 +55,7 @@ function reducer(state = initialState, action) {
     case START_APP:
       return Object.assign({}, state, { isStarted: true });
     case START_ALERT:
-      return Object.assign({}, state, { isAlertStarted: true });
+      return Object.assign({}, state, { isAlertStarted: action.show });
     default: {
       return state;
     }

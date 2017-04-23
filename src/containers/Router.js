@@ -4,7 +4,7 @@ import React, {
 } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { defineVideoSize, addTree, takePicture, registerTree, sendAlert, sendWarning, startApp } from '../actions/';
+import { defineVideoSize, addTree, takePicture, registerTree, sendAlert, sendWarning, startApp, startAlert } from '../actions/';
 import CameraContainer from './CameraContainer';
 import MapViewContainer from './MapViewContainer';
 import CreateTreeContainer from './CreateTreeContainer';
@@ -52,7 +52,7 @@ class Router extends Component {
   render() {
     if (this.props.isAlertStarted) {
       return (
-        <FakeAlert />
+        <FakeAlert startAlert={() => this.props.actions.startAlert(false) } />
       )
     } else if (this.props.isTakingPicture) {
       return (
@@ -129,7 +129,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  const actions = { defineVideoSize, addTree, takePicture, registerTree, sendAlert, sendWarning, startApp };
+  const actions = { defineVideoSize, addTree, takePicture, registerTree, sendAlert, sendWarning, startApp, startAlert };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;
 }
