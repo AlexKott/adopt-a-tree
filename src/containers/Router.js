@@ -10,6 +10,7 @@ import MapViewContainer from './MapViewContainer';
 import CreateTreeContainer from './CreateTreeContainer';
 import TreeProfileContainer from './TreeProfileContainer';
 import Fab from '../components/Fab';
+import LoadingScreen from '../components/LoadingScreen';
 import IssueAlert from '../components/IssueAlert.js';
 
 class Router extends Component {
@@ -61,6 +62,7 @@ class Router extends Component {
     } else {
       return (
         <div className="wrapper">
+          {this.props.isLoading && <LoadingScreen />}
           <MapViewContainer
             onMapLoad={() => {}}
             onMapClick={() => {}}
@@ -79,6 +81,7 @@ Router.propTypes = {
 
 function mapStateToProps(state) {
   const props = {
+    isLoading: state.mapView.isLoading,
     isAddingTree: state.mapView.isAddingTree,
     isTakingPicture: state.mapView.isTakingPicture,
     isViewingTree: state.mapView.isViewingTree,

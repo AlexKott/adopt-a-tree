@@ -6,6 +6,7 @@ CHANGE_TREE_NAME, REGISTER_TREE, OPEN_TREE, SHOW_MAP, SAVE_MARKERS } from '../ac
 const initialState = {
   position: config.defaultPosition,
   zoom: config.defaultZoom,
+  isLoading: true,
   isAddingTree: false,
   isTakingPicture: false,
   videoSize: {
@@ -22,7 +23,7 @@ const initialState = {
 function reducer(state = initialState, action) {
   switch (action.type) {
     case SET_GEOLOCATION:
-      return Object.assign({}, state, { position: action.position, trees: action.trees });
+      return Object.assign({}, state, { position: action.position, trees: action.trees, isLoading: false });
     case ADD_TREE:
       return Object.assign({}, state, { isTakingPicture: true });
     case DEFINE_VIDEO_SIZE:

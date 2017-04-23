@@ -17,7 +17,7 @@ function action(position) {
             lat: tree.location.coordinates[1]
           },
           id: tree._id.$oid,
-          status: tree.status || i === 1 ? 'alert' : 'protected'
+          status: tree.state || i === 1 ? 'alert' : 'protected'
         }));
         dispatch({ type: SET_GEOLOCATION, position, trees });
       });
